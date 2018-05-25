@@ -1,0 +1,47 @@
+graph switches {
+  node [
+    shape=box, 
+    fontsize=12,
+    style=filled,
+  ];
+  edge [
+    fontsize=12
+  ];
+  
+  cloud [ label="The Internet" shape=none, image="images/cloud.png" labelloc=b color="#ffffff"]
+
+  node [
+    machinetype="network"
+  ];
+  router [label="router"];
+  nobuckle [label="nobuckle\n10.2.2.1"];
+
+  node [
+    machinetype="server"
+  ];
+  groobee [];
+  too [];
+  tilly [];
+  minga [];
+
+  cloud -- router [linetype="dsl", headlabel="59.167.179.3"];
+
+  edge [linetype="wired"];
+  router -- nobuckle [taillabel="10.2.1.1", headlabel="10.2.1.2"];
+  nobuckle -- groobee [headlabel="10.2.2.60"];
+  nobuckle -- too [headlabel="10.2.2.61"];
+  nobuckle -- tilly [headlabel="10.2.2.64"];
+  nobuckle -- minga [headlabel="10.2.2.110"];
+  
+  edge [linetype="service"];
+  cloud -- too [label="http"];
+  too -- tilly [label="http/couchpotato", headlabel=":5050"];
+  too -- tilly [label="http/sabnzbd", headlabel=":8080"];
+  too -- tilly [label="http/sickbeard", headlabel=":8081"];
+  too -- too [label="http/deluge", headlabel=":8112"];
+  too -- groobee [label="http/control", headlabel=":7080"];
+  too -- groobee [label="http/hassio", headlabel=":8123"];
+  too -- minga [label="http/kodi", headlabel=":8501"];
+  too -- minga [label="http/sonos", headlabel=":5006"];
+  too -- minga [label="http/sonos-api", headlabel=":5005"];
+}

@@ -1,0 +1,22 @@
+E {
+}
+E[linetype=="dsl"] {
+    color="green";
+}
+E[linetype=="wired"] {
+    color="red";
+}
+E[linetype=="wireless"] {
+    color="blue";
+}
+E[linetype=="service"] {
+    color="orange";
+    style="dashed";
+}
+
+N[machinetype=="network"] {
+    color="mistyrose";
+}
+N[machinetype=="server"] {
+    color="skyblue";
+}
